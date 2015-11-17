@@ -233,13 +233,13 @@ $(window).on('load', function(){
         }
     })
 
-    $(window).on('resize', function() {
+    /*$(window).on('resize', function() {
         if ($(window).width() < 768) {
             snapper.enable();
         } else{
             snapper.disable();
         }
-    })
+    })*/
 
     $(document).mouseup(function (e) {
         var $searchform = $(".ct-navbar-search");
