@@ -1,7 +1,32 @@
-/* ====================== */
-        /* ==== OWL CAROUSEL ==== */
-owlInit = function(){
-        console.log('Owl Carousel Init ready function');
+var $devicewidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+var $deviceheight = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+var $bodyel = jQuery("body");
+
+var $lgWidth = 1199;
+var $mdWidth = 991;
+var $smWidth = 767;
+var $xsWidth = 479;
+
+function parseBoolean(str, $defaultValue) {
+    "use strict";
+    if (str == 'true') {
+        return true;
+    } else if (str == "false") {
+        return false;
+    }
+    return $defaultValue;
+}
+
+Template.landingMain.rendered = function(){
+
+	owlInit();
+
+};
+
+
+
+	function owlInit(){
+		console.log('Owl Carousel Init ready function');
         if($().owlCarousel){
             console.log('The length of .ct-js-owl is: ', $('.ct-js-owl').length);
             if ($('.ct-js-owl').length > 0) {
@@ -179,4 +204,12 @@ owlInit = function(){
             }
         }
     }
+
+    function validatedata($attr, $defaultValue) {
+    "use strict";
+    if ($attr !== undefined) {
+        return $attr;
+    }
+    return $defaultValue;
+}
 
