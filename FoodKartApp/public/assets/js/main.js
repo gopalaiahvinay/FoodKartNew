@@ -17,7 +17,7 @@ var $xsWidth = 479;
 function validatedata($attr, $defaultValue) {
     "use strict";
     if ($attr !== undefined) {
-        return $attr
+        return $attr;
     }
     return $defaultValue;
 }
@@ -113,23 +113,25 @@ $(window).on('load', function(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
              $("ul.ct-restaurantMenu li:first-child").addClass('is-active');
-        //Scroll to Top// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-        $('#toTop').on("click", function() {
-            $("body,html").animate({scrollTop: 0}, 600);
-            $("ul.ct-restaurantMenu li").removeClass('is-active');
-             $("ul.ct-restaurantMenu li:first-child").addClass('is-active');
-            return true;
-        });
-
-        $(window).scroll(function () {
-            if ($(this).scrollTop() != 0) {
-                $("#toTop").fadeIn(300);
-            } else {
-                $("#toTop").fadeOut(250);
-            }
-        });
+        //Magnific Popup///////////////////////////////////////////////////////////////////////////////////////////
+                if(jQuery().magnificPopup){
+                    jQuery('.ct-js-popupGallery').each(function() { // the containers for all your galleries
+                        jQuery(this).magnificPopup({
+                            disableOn: 700,
+                            type: 'image',
+                            mainClass: 'ct-magnificPopup--image',
+                            removalDelay: 160,
+                            preloader: true,
+                            delegate: '.ct-js-popup',
+                            closeBtnInside: true,
+                            closeOnContentClick: false,
+                            closeOnBgClick: true,
+                            gallery: {
+                                enabled: true
+                            }
+                        });
+                    });
+                }
 
         // Add Color // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
